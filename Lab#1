@@ -32,7 +32,9 @@
 #include <xc.h>
 #include <stdint.h>             // TIPOS DE DATOS ESTANDAR Y OTROS.
 #define _XTAL_FREQ 4000000
-//__________________________
+#include <pic16f887.h>
+#include "ADC.h"
+//__________
 // DECLARACION DE VARIABLES
 uint8_t V;
 uint8_t V1;
@@ -40,129 +42,130 @@ uint8_t Unidad;
 uint8_t Decena;
 uint8_t Centena;
 uint8_t Nibble;
+uint8_t Nibble2;
 uint8_t Suitw;
-//__________________________
+//__________
 // PROTOTIPOS DE FUNCIONES
 void Setup(void);       // Llamamos las configuraciones de los pines 
 int  Tabla(int V1);    // Llamamos la funcion tabla
-void Decimal_CV(void);//  Llamamos la funcion de conversion a decimales 
-//__________________________
+//__________
 // FUNCION DE INTERRUPCIONES
 void __interrupt() isr(void){
 //----------------------------- INTERRUPCION TMR0 ------------------------------    
-    if(T0IF == 1) {       //Verificamos si la bandera del TMR0 es 1
-        TMR0  = 236;      //Colocamos el valor a TMR0 para que funcione la interrupcion cada 5ms
-        T0IF  = 0;        //Reiniciamos la bandera del TMR0
-        PORTE = 0x00;     //Encendemos el Puerto E
+    if(T0IF == 1) {           //Verificamos si la bandera del TMR0 es 1
+        TMR0  = 236;          //Colocamos el valor a TMR0 para que funcione la interrupcion cada 5ms
+        T0IF  = 0;            //Reiniciamos la bandera del TMR0
+        PORTE = 0x00;         //Encendemos el Puerto E
         if(Suitw == 0){       //Verificamos la variable para poder realizar el suicheo 
-            V1    = Unidad;   //Movemos el valor de la variable unidad a V
+            V1    = Nibble;   //Movemos el valor de la variable unidad a V
             PORTD = Tabla(V1);//Movemos el valor de la tabla a PORTD
             RE0   = 1;        //Volvemos 0 el pin del puerto E
             Suitw = 1;        //Cambiamos el valor de Suitw para poder controlar el suicheo 
             return;
         }    
         if(Suitw == 1){
-            V1    = Decena;
+            V1    = Nibble2;
             PORTD = Tabla(V1);
             RE1   = 1;
-            Suitw = 2;
-            return;
-        }    
-        if(Suitw == 2){
-            V1    = Centena;
-            PORTD = Tabla(V1);
-            RE2   = 1;
             Suitw = 0;
             return;
-        }
+        }    
     }
 //----------------------------- INTERRUPCION RBIF ------------------------------     
     if(RBIF == 1){           //Verificamos si la bandera del IoCH es 1 
         if(RB0 == 0){        //Verificamos si el pin esta precionado 
             PORTC++;         //Aumentamos el Puerto C cuando se preciona el boton 
         }
-        if(RB1 == 0){       //Verificamos si el pin esta precionado 
-            PORTC--;        //Decrementamos el Puerto C cuando se preciona el boton
+        if(RB1 == 0){        //Verificamos si el pin esta precionado 
+            PORTC--;         //Decrementamos el Puerto C cuando se preciona el boton
         }
-        RBIF = 0;          //Limpiamos la bandera del IoCH
+        RBIF = 0;            //Limpiamos la bandera del IoCH
     }
 
-//----------------------------- INTERRUPCION DEL ADC ----------------------------
-    if(ADIF == 1){           //Verificamos si la bandera del IoCH es 1 
-        if(ADCON0bits.CHS == 0){        //Verificamos si el pin esta precionado 
-           V = ADRESH;        //Decrementamos el Puerto C cuando se preciona el boton 
-        }
-        ADIF = 0;          //Limpiamos la bandera del IoCH
-    }
+//----------------------------- INTERRUPCION Y LIBRERIA DEL  ADC ----------------------------
+    Recib_ADC();             //LLamamos la libreria para recibir datos del ADC
 }
-//__________________________
+//__________
 // FUNCION PRINCIPAL (MAIN)
-//__________________________
-
 void main(void){
      Setup();
     __delay_us(50);
-    ADCON0bits.GO = 1;
+    ADCON0bits.GO = 1;       
      while(1){
-     Decimal_CV();
-         if(ADCON0bits.GO == 0){ 
-         if (ADCON0bits.CHS == 0){
-             ADCON0bits.CHS = 0;
-         }
-         __delay_us(50);
-         ADCON0bits.GO = 1;
+         Nibble  = V & 0x0F;      //Tomamos los 4 bits menos signficativos del ADRESH
+         Nibble2 = (V>>4) & 0x0F; //Tomamos los 4 bits mas signficativos del ADRESH
+         
+         Stard_ADC();             //Llamamos la libreria para comensar al conversion 
+    
+        if(V > PORTC){            //Verificamos si el valor del Adresh es mayor que el contador 
+            RA2 = 1;              //Encendemos la alarma
+        }
+        if(V < PORTC || V == PORTC ){//Verificamos si el valor del Adresh es menor o igual al valor del contador
+            RA2 = 0;              //Apagamos la alarma 
+        }
+        
      }
-     }
+     
 }
-//__________________________
+//__________
 //TABLA DE VALORES DE LOS DISPLAYS
 int Tabla(int V1){
     int w;
     switch (V1){
-        case 0:
+        case 0:    //#0/
         w = 0b00111111;
         break;
-        case 1:
+        case 1:   //#1/
         w = 0b00000110;
         break;
-        case 2:
+        case 2:   //#2/
         w = 0b01011011;
         break;
-        case 3:
+        case 3:  //#3/
         w = 0b01001111;
         break;
-        case 4:
+        case 4: //#4/
         w = 0b01100110;
         break;
-        case 5:
+        case 5: //#5/
         w = 0b01101101;
         break;
-        case 6:
+        case 6: //#6/
         w = 0b01111101;
         break;
-        case 7:
+        case 7: //#7/
         w = 0b00000111;
         break;
-        case 8:
+        case 8: //#8/
         w = 0b01111111;
         break;
-        case 9:
+        case 9: //#9/
         w = 0b01101111;
+        break;
+        case 10: //A/
+        w = 0b01110111;
+        break;
+        case 11: //B/
+        w = 0b01111100;
+        break;
+        case 12: //C/
+        w = 0b00111001;
+        break;
+        case 13: //D/
+        w = 0b01011110;
+        break;
+        case 14: //E/
+        w = 0b01111001;
+        break;
+        case 15: //F/
+        w = 0b01110001;
         break;
         default:
         w = 0;    
     }
     return w;
 }
-//__________________________
-// FUNCION DE DIVISION
-void Decimal_CV(void){
-     Centena =  V/100;   //Realizamos la operacion para encontrar la centana 
-     Decena = (V - Centena*100)/10;//Realizamos la operacion para encontrar la decena 
-     Unidad = (V - Centena*100 - Decena*10)/1;//Realizamos la operacion para encontrar la unidad
-     return;
-} 
-//__________________________
+//__________
 // FUNCION DE CONFIGURACION
 
 void Setup(void){
