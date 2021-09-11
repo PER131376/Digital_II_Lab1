@@ -1,0 +1,313 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 0 ]
+"505 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"44 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\Main_Lab5.c
+[v _isr isr `II(v  1 e 1 0 ]
+"62
+[v _main main `(v  1 e 1 0 ]
+"77
+[v _setup setup `(v  1 e 1 0 ]
+"27 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\UART5.c
+[v _Envio_caracter Envio_caracter `(v  1 e 1 0 ]
+"33
+[v _cadena_caracteres cadena_caracteres `(v  1 e 1 0 ]
+"43
+[v _configuracionUART configuracionUART `(v  1 e 1 0 ]
+"58
+[v _valorsensores valorsensores `(v  1 e 1 0 ]
+"166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S122 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"307
+[u S131 . 1 `S122 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES131  1 e 1 @7 ]
+"352
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"414
+[v _PORTE PORTE `VEuc  1 e 1 @9 ]
+[s S26 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482
+[s S35 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S40 . 1 `S26 1 . 1 0 `S35 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES40  1 e 1 @11 ]
+[s S62 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S70 . 1 `S62 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES70  1 e 1 @12 ]
+[s S350 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S359 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S363 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S366 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S369 . 1 `S350 1 . 1 0 `S359 1 . 1 0 `S363 1 . 1 0 `S366 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES369  1 e 1 @24 ]
+"1133
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1140
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+[s S93 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"1366
+[s S100 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+]
+[u S104 . 1 `S93 1 . 1 0 `S100 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES104  1 e 1 @129 ]
+"1416
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1602
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1664
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+[s S195 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S203 . 1 `S195 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES203  1 e 1 @140 ]
+[s S169 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S175 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S180 . 1 `S169 1 . 1 0 `S175 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES180  1 e 1 @143 ]
+"2346
+[v _WPUB WPUB `VEuc  1 e 1 @149 ]
+[s S143 . 1 `uc 1 IOCB 1 0 :8:0 
+]
+"2436
+[s S145 . 1 `uc 1 IOCB0 1 0 :1:0 
+`uc 1 IOCB1 1 0 :1:1 
+`uc 1 IOCB2 1 0 :1:2 
+`uc 1 IOCB3 1 0 :1:3 
+`uc 1 IOCB4 1 0 :1:4 
+`uc 1 IOCB5 1 0 :1:5 
+`uc 1 IOCB6 1 0 :1:6 
+`uc 1 IOCB7 1 0 :1:7 
+]
+[u S154 . 1 `S143 1 . 1 0 `S145 1 . 1 0 ]
+[v _IOCBbits IOCBbits `VES154  1 e 1 @150 ]
+[s S290 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S299 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S303 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S306 . 1 `S290 1 . 1 0 `S299 1 . 1 0 `S303 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES306  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2704
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
+[s S327 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3352
+[u S336 . 1 `S327 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES336  1 e 1 @391 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"4103
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"4106
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
+"4130
+[v _RBIF RBIF `VEb  1 e 0 @88 ]
+"4544
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"358 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+[v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
+"23 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\UART5.c
+[v _PC PC `uc  1 e 1 0 ]
+"24
+[v _Cont Cont `uc  1 e 1 0 ]
+"25
+[v _s s `[20]uc  1 e 20 0 ]
+"62 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\Main_Lab5.c
+[v _main main `(v  1 e 1 0 ]
+{
+"75
+} 0
+"58 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\UART5.c
+[v _valorsensores valorsensores `(v  1 e 1 0 ]
+{
+"65
+} 0
+"505 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"545
+[v sprintf@val val `ui  1 a 2 17 ]
+"512
+[v sprintf@c c `uc  1 a 1 20 ]
+"521
+[v sprintf@prec prec `c  1 a 1 16 ]
+"525
+[v sprintf@flag flag `uc  1 a 1 15 ]
+"507
+[v sprintf@ap ap `[1]*.4v  1 a 1 14 ]
+"505
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCuc  1 p 1 8 ]
+"550
+[v sprintf@sp sp `*.4uc  1 a 1 19 ]
+"1567
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 7 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 1 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 0 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
+"30
+} 0
+"33 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\UART5.c
+[v _cadena_caracteres cadena_caracteres `(v  1 e 1 0 ]
+{
+[v cadena_caracteres@st st `*.4uc  1 a 1 wreg ]
+"35
+[v cadena_caracteres@i i `i  1 a 2 5 ]
+"33
+[v cadena_caracteres@st st `*.4uc  1 a 1 wreg ]
+"35
+[v cadena_caracteres@st st `*.4uc  1 a 1 7 ]
+"42
+} 0
+"27
+[v _Envio_caracter Envio_caracter `(v  1 e 1 0 ]
+{
+[v Envio_caracter@caracter caracter `uc  1 a 1 wreg ]
+[v Envio_caracter@caracter caracter `uc  1 a 1 wreg ]
+[v Envio_caracter@caracter caracter `uc  1 a 1 3 ]
+"32
+} 0
+"77 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\Main_Lab5.c
+[v _setup setup `(v  1 e 1 0 ]
+{
+"116
+} 0
+"43 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\UART5.c
+[v _configuracionUART configuracionUART `(v  1 e 1 0 ]
+{
+"57
+} 0
+"44 D:\Selvin\Desktop\UVG\2021\Segundo semestre\Digital II\Labs\Lab5\Lab5_Digital2.X\Main_Lab5.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"60
+} 0
