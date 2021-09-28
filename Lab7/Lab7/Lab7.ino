@@ -2,8 +2,8 @@
 //Carnet 131376
 //lab 05
 
-#include <SPI.h>
-#include <SD.h>
+#include <SPI.h>//Liberia de SPI
+#include <SD.h> //Libreria para leer la SD
 
 char get;
 
@@ -32,10 +32,10 @@ void setup()
   Serial.println("initialization done.");
 
 
-  root = SD.open("/");
-  Directorio(root, 0);
+  root = SD.open("/");//Poder leer los archivos dentro de la SD
+  Directorio(root, 0);//Nos permite ir al directorio root y desplegar los archivos 
 
-  //USUARIO
+  //Menu para el usuario 
   Serial.println("Ingrese el numero según las opciones numeradas");
   Serial.println("Envie 1) si quiere mostrar NIKE.TXT");
   Serial.println("Envie 2) si quiere mostrar ARTICUNO.TXT");
@@ -43,26 +43,6 @@ void setup()
   Serial.println("Envie 4) si quiere mostrar OW.TXT");
   Serial.println("Envie 5) si quiere mostrar los archivos en la SD");
 
-
-
-
-
-  /*
-    // re-open the file for reading:
-    myFile = SD.open("ow.txt");
-    if (myFile) {
-      //Serial.println("test.txt:");
-      // read from the file until there's nothing else in it:
-      while (myFile.available()) {
-        Serial.write(myFile.read());
-      }
-      // close the file:
-      myFile.close();
-    } else {
-      // if the file didn't open, print an error:
-      Serial.println("error opening test.txt");
-    }
-  */
 }
 
 void loop() {
@@ -93,7 +73,7 @@ void loop() {
       break;
 
     case '2':
-      myFile = SD.open("articuno.txt");
+      myFile = SD.open("Articuno.txt");
       if (myFile) {
         //Serial.println("test.txt:");
 
@@ -116,7 +96,7 @@ void loop() {
       break;
 
     case '3':
-      myFile = SD.open("CHAMPION.txt");
+      myFile = SD.open("Champions.txt");
       if (myFile) {
         //Serial.println("test.txt:");
 
@@ -139,7 +119,7 @@ void loop() {
       break;
 
     case '4':
-      myFile = SD.open("ow.txt");
+      myFile = SD.open("Ow.txt");
       if (myFile) {
         //Serial.println("test.txt:");
 
